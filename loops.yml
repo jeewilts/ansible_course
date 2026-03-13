@@ -1,0 +1,12 @@
+---
+- name: loops demo playbook
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: loop all softwares
+      ansible.builtin.debug:
+        msg: "item is {{ item }}"
+      loop:
+        - wget
+        - apache2
+        - php
