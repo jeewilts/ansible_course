@@ -1,0 +1,10 @@
+---
+- name: variable example
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Print variable
+      debug:
+        msg: "{{ http_port }}"
+  vars:
+    http_port: 80
