@@ -1,5 +1,5 @@
 ---
-- name: ping clients
+- name: ping 2 clients
   hosts: all
   tasks:
     - name: ping clients
