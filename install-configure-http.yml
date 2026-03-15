@@ -1,0 +1,26 @@
+---
+- name: install and configure http server
+  hosts: all
+  gather_facts: yes
+  become: yes
+
+  tasks:
+  - name: update repository index
+    ansible.builtin.apt:
+      update_cache: yes
+    
+  - name: install apache2 package
+    ansible.builtin.apt:
+      name: apache2
+      state: present
+
+  - name: create default index.html page
+    ansible.builtin.copy:
+      src: templates/web_page_template.j2
+      dest: /var/www/html/index.html
+
+  - name: ensure apache2 service is running and enabled
+    ansible.builtin.service:
+      name: apache2
+      state: started
+      enabled: yes
