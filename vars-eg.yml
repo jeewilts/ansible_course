@@ -5,6 +5,6 @@
   tasks:
     - name: Print variable
       debug:
-        msg: "{{ http_port }}"
+        msg: "Port is {{ http_port }}"
   vars:
     http_port: 80
